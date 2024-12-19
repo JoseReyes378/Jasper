@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<VBox xmlns="http://javafx.com/javafx/20" xmlns:fx="http://javafx.com/fxml/1"
+      fx:controller="org.example.demo1.Controller.FormularioCopiaController">
+    <Label text="Estado:" />
+    <TextField fx:id="txtEstado" />
+    <Label text="Cantidad:" />
+    <TextField fx:id="txtCantidad" />
+    <Button text="Guardar" onAction="#onGuardar" />
+    <Button text="Cancelar" onAction="#onCancelar" />
+</VBox>

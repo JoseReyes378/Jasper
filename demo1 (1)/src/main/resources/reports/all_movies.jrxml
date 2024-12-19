@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports"
+              xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+              xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd"
+              name="all_movies" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="all-movies-template">
+    <queryString>
+        <![CDATA[
+            SELECT id, titulo, director, descripcion, duracion, anio, genero, imagen
+            FROM pelicula
+        ]]>
+    </queryString>
+    <field name="id" class="java.lang.Integer"/>
+    <field name="titulo" class="java.lang.String"/>
+    <field name="director" class="java.lang.String"/>
+    <field name="descripcion" class="java.lang.String"/>
+    <field name="duracion" class="java.lang.Integer"/>
+    <field name="anio" class="java.lang.Integer"/>
+    <field name="genero" class="java.lang.String"/>
+    <field name="imagen" class="java.lang.String"/>
+    <title>
+        <band height="50">
+            <staticText>
+                <reportElement x="0" y="0" width="555" height="30"/>
+                <textElement>
+                    <font size="16" isBold="true"/>
+                </textElement>
+                <text><![CDATA[Listado Completo de Películas]]></text>
+            </staticText>
+        </band>
+    </title>
+    <columnHeader>
+        <band height="30">
+            <staticText>
+                <reportElement x="0" y="0" width="50" height="20"/>
+                <text><![CDATA[ID]]></text>
+            </staticText>
+            <staticText>
+                <reportElement x="50" y="0" width="100" height="20"/>
+                <text><![CDATA[Título]]></text>
+            </staticText>
+            <staticText>
+                <reportElement x="150" y="0" width="100" height="20"/>
+                <text><![CDATA[Director]]></text>
+            </staticText>
+            <staticText>
+                <reportElement x="250" y="0" width="200" height="20"/>
+                <text><![CDATA[Descripción]]></text>
+            </staticText>
+        </band>
+    </columnHeader>
+    <detail>
+        <band height="20">
+            <textField>
+                <reportElement x="0" y="0" width="50" height="20"/>
+                <textFieldExpression><![CDATA[$F{id}]]></textFieldExpression>
+            </textField>
+            <textField>
+                <reportElement x="50" y="0" width="100" height="20"/>
+                <textFieldExpression><![CDATA[$F{titulo}]]></textFieldExpression>
+            </textField>
+            <textField>
+                <reportElement x="150" y="0" width="100" height="20"/>
+                <textFieldExpression><![CDATA[$F{director}]]></textFieldExpression>
+            </textField>
+            <textField>
+                <reportElement x="250" y="0" width="200" height="20"/>
+                <textFieldExpression><![CDATA[$F{descripcion}]]></textFieldExpression>
+            </textField>
+        </band>
+    </detail>
+</jasperReport>

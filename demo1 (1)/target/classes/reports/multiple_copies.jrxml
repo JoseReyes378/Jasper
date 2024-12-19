@@ -1,0 +1,9 @@
+<queryString>
+    <![CDATA[
+        SELECT p.titulo, p.director, SUM(c.cantidad) AS total_copias
+        FROM pelicula p
+        JOIN copia c ON p.id = c.id_pelicula
+        GROUP BY p.id, p.titulo, p.director
+        HAVING total_copias > 1
+    ]]>
+</queryString>

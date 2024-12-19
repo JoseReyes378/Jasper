@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports"
+              xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+              xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd"
+              name="damaged_movies" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="damaged-movies-template">
+    <queryString>
+        <![CDATA[
+            SELECT c.id AS copia_id, p.titulo, p.director, c.estado
+            FROM copia c
+            JOIN pelicula p ON c.id_pelicula = p.id
+            WHERE c.estado != 'Disponible'
+        ]]>
+    </queryString>
+    <field name="copia_id" class="java.lang.Integer"/>
+    <field name="titulo" class="java.lang.String"/>
+    <field name="director" class="java.lang.String"/>
+    <field name="estado" class="java.lang.String"/>
+    <title>
+        <band height="50">
+            <staticText>
+                <reportElement x="0" y="0" width="555" height="30"/>
+                <textElement>
+                    <font size="16" isBold="true"/>
+                </textElement>
+                <text><![CDATA[Películas en Mal Estado]]></text>
+            </staticText>
+        </band>
+    </title>
+    <columnHeader>
+        <band height="30">
+            <staticText>
+                <reportElement x="0" y="0" width="50" height="20"/>
+                <text><![CDATA[ID Copia]]></text>
+            </staticText>
+            <staticText>
+                <reportElement x="50" y="0" width="150" height="20"/>
+                <text><![CDATA[Título]]></text>
+            </staticText>
+            <staticText>
+                <reportElement x="200" y="0" width="150" height="20"/>
+                <text><![CDATA[Director]]></text>
+            </staticText>
+            <staticText>
+                <reportElement x="350" y="0" width="100" height="20"/>
+                <text><![CDATA[Estado]]></text>
+            </staticText>
+        </band>
+    </columnHeader>
+    <detail>
+        <band height="20">
+            <textField>
+                <reportElement x="0" y="0" width="50" height="20"/>
+                <textFieldExpression><![CDATA[$F{copia_id}]]></textFieldExpression>
+            </textField>
+            <textField>
+                <reportElement x="50" y="0" width="150" height="20"/>
+                <textFieldExpression><![CDATA[$F{titulo}]]></textFieldExpression>
+            </textField>
+            <textField>
+                <reportElement x="200" y="0" width="150" height="20"/>
+                <textFieldExpression><![CDATA[$F{director}]]></textFieldExpression>
+            </textField>
+            <textField>
+                <reportElement x="350" y="0" width="100" height="20"/>
+                <textFieldExpression><![CDATA[$F{estado}]]></textFieldExpression>
+            </textField>
+        </band>
+    </detail>
+</jasperReport>

@@ -1,0 +1,3 @@
+<queryString>
+    <![CDATA[SELECT * FROM peliculas WHERE id_copia = $P{id_copia}]]>
+</queryString>
